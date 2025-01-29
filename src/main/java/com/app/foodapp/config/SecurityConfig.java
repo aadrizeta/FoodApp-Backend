@@ -30,10 +30,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/users/create",
-                                "/users/get-users"
+                                "/users/get-users",
+                                "/users/login"
                         )
                         .permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(new JwtAuthenticationFilter(this.jwtUtil),
                         org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);

@@ -4,7 +4,9 @@ import com.app.foodapp.models.Roles;
 import com.app.foodapp.models.Users;
 import com.app.foodapp.repositories.RolesRepository;
 import com.app.foodapp.repositories.UserRepository;
+import com.app.foodapp.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -20,6 +22,13 @@ public class UsersService {
 
     @Autowired
     private RolesRepository rolesRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
 
     public List<Users> getAllUsers() {
         return this.userRepository.findAll();
@@ -66,7 +75,7 @@ public class UsersService {
         newUser.setLastName(user.getLastName());
         newUser.setPhone(user.getPhone());
         newUser.setEmail(user.getEmail());
-        newUser.setPassword(user.getPassword());
+        newUser.setPassword(this.passwordEncoder.encode(user.getPassword()));
         newUser.setImage("");
 
         // Creamos un array vacío de roles
@@ -93,6 +102,23 @@ public class UsersService {
         }
         newUser.setRoles(roles); // Asignamos al objeto nuevo usuario los roles establecidos
         return this.userRepository.save(newUser); // Guardamos el usuario.
+    }
+
+    public String login(String email, String password) {
+        //Users optionalUser = this.userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException());
+        Optional<Users> optionalUser = this.userRepository.findByEmail(email);
+        if (optionalUser.isEmpty()){
+            return "El usuario no existe";
+        }
+        Users user = optionalUser.get();
+        if (!this.passwordEncoder.matches(password, user.getPassword())){
+            return "Contraseña incorrecta";
+        }
+        return "Login success";
+    }
+
+    public String createToken(String email) {
+        return this.jwtUtil.generateToken(email);
     }
 
 }
