@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1853d37c-3584-4368-8536-41eeba8d7042" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/foodapp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/foodapp/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/foodapp/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/foodapp/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/foodapp/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/foodapp/models/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/foodapp/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/foodapp/services/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/foodapp/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/foodapp/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/foodapp/controllers/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/foodapp/controllers/UsersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/foodapp/models/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/foodapp/models/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/foodapp/services/UsersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/foodapp/services/UsersService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +29,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2rwMGBavWEVSMFb5Bol0IyXYhcX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

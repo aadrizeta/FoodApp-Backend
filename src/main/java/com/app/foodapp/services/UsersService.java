@@ -1,5 +1,7 @@
 package com.app.foodapp.services;
 
+import com.app.foodapp.dto.ApiDelivery;
+import com.app.foodapp.dto.LoginResponse;
 import com.app.foodapp.models.Roles;
 import com.app.foodapp.models.Users;
 import com.app.foodapp.repositories.RolesRepository;
@@ -104,17 +106,19 @@ public class UsersService {
         return this.userRepository.save(newUser); // Guardamos el usuario.
     }
 
-    public String login(String email, String password) {
+    public ApiDelivery login(String email, String password) {
         //Users optionalUser = this.userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException());
         Optional<Users> optionalUser = this.userRepository.findByEmail(email);
         if (optionalUser.isEmpty()){
-            return "El usuario no existe";
+            return new ApiDelivery<>("User not found", false, 404, null, "not found");
         }
         Users user = optionalUser.get();
         if (!this.passwordEncoder.matches(password, user.getPassword())){
-            return "Contraseña incorrecta";
+            return new ApiDelivery("Password Incorrect", false, 400, null, "incorrect password");
         }
-        return "Login success";
+        String token = this.createToken(email);
+        LoginResponse login = new LoginResponse(user, token);
+        return new ApiDelivery("Login Success", true, 200, null, "login successful");
     }
 
     public String createToken(String email) {
