@@ -1,7 +1,9 @@
 package com.app.foodapp.dto;
 
 import com.app.foodapp.models.Users;
-import org.apache.catalina.User;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class LoginResponse {
     private String token;
@@ -11,6 +13,7 @@ public class LoginResponse {
     private String email;
     private String password;
     private String phone;
+    private Set<RoleDTO> roles;
 
     public LoginResponse(Users user, String token) {
         this.token = token;
@@ -20,6 +23,7 @@ public class LoginResponse {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.phone = user.getPhone();
+        this.roles = user.getRoles().stream().map(RoleDTO::new).collect(Collectors.toSet());
 
     }
 
@@ -69,5 +73,21 @@ public class LoginResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Set<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleDTO> roles) {
+        this.roles = roles;
     }
 }
